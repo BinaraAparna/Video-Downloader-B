@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader-B</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-download"></i> Video Downloader-B</h1>
+        <form id="videoForm">
+            <div class="input-group">
+                <input type="url" id="videoUrl" placeholder="Paste TikTok/YouTube URL here..." required>
+                <button type="submit"><i class="fas fa-search"></i> Analyze</button>
+            </div>
+        </form>
+
+        <!-- Loading Animation -->
+        <div id="loading" class="d-none">
+            <div class="loader"></div>
+            <p>Analyzing URL...</p>
+        </div>
+
+        <div id="videoInfo" class="d-none">
+            <div class="video-preview">
+                <!-- Thumbnail Preview -->
+                <img id="thumbnailPreview" src="" alt="Video Thumbnail" style="display: none; width: 100%; border-radius: 10px;">
+                <!-- Video Preview -->
+                <video id="videoPreview" controls style="display: none; width: 100%; border-radius: 10px;"></video>
+            </div>
+            <div class="quality-buttons">
+                <h3>Select Quality:</h3>
+                <div id="qualityButtons"></div>
+            </div>
+        </div>
+        
+
+        <!-- Error Alert -->
+        <div id="errorAlert" class="alert d-none"></div>
+    </div>
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
